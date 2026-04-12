@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
+//ログイン後のルーティング:index
 Route::get('top', [PostsController::class, 'index']);
 
 Route::get('profile', [ProfileController::class, 'profile']);

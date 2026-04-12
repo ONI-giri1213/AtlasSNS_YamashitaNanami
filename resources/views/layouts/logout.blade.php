@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+
         <!--スマホ,タブレット対応-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--サイトのアイコン指定-->

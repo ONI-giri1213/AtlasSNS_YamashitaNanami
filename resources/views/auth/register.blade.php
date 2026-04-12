@@ -1,25 +1,35 @@
 <x-logout-layout>
     <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '〇〇']) !!}
+{!! Form::open(['url' => 'added'],['method' => 'post']) !!}
 
-<h2>新規ユーザー登録</h2>
+<div class="container">
+    <div class="box">
+        <div class="useradd-box">
+            <h2 class="sub-tittle">新規ユーザー登録</h2>
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+            <div class="input-box">
+            {{ Form::label('ユーザー名','ユーザー名',['class' => 'form-label']) }}
+            {{ Form::text('username',null,['class' => 'input form-control rounded-pill']) }}
+            </div>
+            <div class="input-box">
+            {{ Form::label('メールアドレス','メールアドレス',['class' => 'form-label']) }}
+            {{ Form::email('email',null,['class' => 'input form-control rounded-pill']) }}
+            </div>
+            <div class="input-box">
+            {{ Form::label('パスワード','パスワード',['class' => 'form-label']) }}
+            {{ Form::password('password',['class' => 'input form-control rounded-pill']) }}
+            </div>
+            <div class="input-box">
+            {{ Form::label('パスワード確認','パスワード確認',['class' => 'form-label']) }}
+            {{ Form::password('password_confirmation',['class' => 'input form-control rounded-pill']) }}
+            </div>
 
-{{ Form::label('メールアドレス') }}
-{{ Form::email('email',null,['class' => 'input']) }}
+            {{ Form::submit('新規登録',['class' => 'sub-btn']) }}
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
-
-{{ Form::submit('登録') }}
-
-<p><a href="login">ログイン画面へ戻る</a></p>
-
+            <p class="a-box"><a class="a-text" href="login">ログイン画面へ戻る</a></p>
+        </div>
+    </div>
+</div>
 {!! Form::close() !!}
 
 
