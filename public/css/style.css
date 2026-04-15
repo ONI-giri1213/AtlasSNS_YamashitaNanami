@@ -9,6 +9,22 @@ header {
     background: #186AC9;
 }
 
+#logo {
+    text-align: center;
+}
+
+#logo-img {
+    width: 150px;
+    margin-top: 150px;
+}
+
+#logo-text {
+    color: #fff;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 0;
+}
+
 /* main content */
 #row {
     display: flex;

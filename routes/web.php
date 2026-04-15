@@ -23,6 +23,13 @@ require __DIR__ . '/auth.php';
 //ログイン後のルーティング:index
 Route::get('top', [PostsController::class, 'index']);
 
+//新規追加のルーティング
+Route::post('/user/create', [UsersController::class, 'userCreate']);
+
+Route::get('/added', function () {
+    return view('auth.added');
+});
+
 Route::get('profile', [ProfileController::class, 'profile']);
 
 Route::get('search', [UsersController::class, 'index']);
