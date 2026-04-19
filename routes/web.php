@@ -20,19 +20,30 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-//ログイン後のルーティング:index
-Route::get('top', [PostsController::class, 'index']);
+//ログインのルーティング
+Route::post('/login', [UsersController::class, 'login']);
+Route::get('/login', [UsersController::class, 'showLoginForm'])
+->name('login');
+
+//ログイン後のルーティング
+Route::get('/top', [PostsController::class, 'index'])
+->middleware('auth');
 
 //新規追加のルーティング
 Route::post('/user/create', [UsersController::class, 'userCreate']);
-
+//新規追加後画面のルーティング
 Route::get('/added', function () {
     return view('auth.added');
 });
 
-Route::get('profile', [ProfileController::class, 'profile']);
+Route::get('profile', [ProfileController::class, 'profile'])
+->middleware('auth');
 
-Route::get('search', [UsersController::class, 'index']);
+Route::get('search', [UsersController::class, 'index'])
+->middleware('auth');
 
-Route::get('follow-list', [PostsController::class, 'index']);
-Route::get('follower-list', [PostsController::class, 'index']);
+Route::get('follow-list', [PostsController::class, 'index'])
+->middleware('auth');
+
+Route::get('follower-list', [PostsController::class, 'index'])
+->middleware('auth');

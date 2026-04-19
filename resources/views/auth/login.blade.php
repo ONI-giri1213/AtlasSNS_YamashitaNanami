@@ -1,7 +1,7 @@
 <x-logout-layout>
 
   <!-- 適切なURLを入力してください -->
-  {!! Form::open(['url' => 'top', 'method' => 'get']) !!}
+  {!! Form::open(['url' => 'login', 'method' => 'post']) !!}
 
 <div class="container">
   <div class="box">

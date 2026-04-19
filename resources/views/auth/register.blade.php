@@ -24,15 +24,17 @@
             {{ Form::password('password_confirmation',['class' => 'input form-control rounded-pill']) }}
             </div>
 
+            <!--ユーザー登録デバック用
             @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            -->
 
             {{ Form::submit('新規登録',['class' => 'sub-btn']) }}
 
