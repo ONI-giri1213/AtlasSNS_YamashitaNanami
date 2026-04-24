@@ -8,6 +8,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
 
+    //ログインのルーティング
+    Route::post('/login', [UsersController::class, 'login']);
+    Route::get('/login', [UsersController::class, 'showLoginForm'])
+    ->name('login');
+
+    //新規追加のルーティング
+    Route::post('/user/create', [UsersController::class, 'userCreate']);
+    //新規追加後画面のルーティング
+    Route::get('/added', function () {
+        return view('auth.added');
+    });
+
     Route::get('login', [AuthenticatedSessionController::class, 'create']);
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
