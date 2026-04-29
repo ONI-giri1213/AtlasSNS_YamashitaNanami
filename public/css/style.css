@@ -38,6 +38,7 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    width: 300px;
 }
 
 /*----------------------------------ログイン、新規追加画面--------------------------------*/
@@ -273,11 +274,42 @@ header {
 /*---------------------------------------------------------------------------------*/
 
 /*--------------------------------フォロー・フォロワー-------------------------------*/
+#confirm {
+    justify-content: flex-start;
+    padding: 20px 20px 30px;
+    font-size: 1em;
+    border-bottom: 1px solid #727272;
+}
+
+#name {
+    margin-bottom: 15px;
+}
+
 .follow-wrapper {
     display: flex;
     justify-content: space-between;
-    margin: 10px 70px 10px 20px;
+    margin: 20px 70px 20px 0;
 }
 
+.side-btn {
+    display: block;
+    margin-left: auto;
+    background-color: #186AC9;
+    width: 140px;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.side-btn a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.side-btn.search {
+    margin: 20px auto;
+}
 
 /*---------------------------------------------------------------------------------*/

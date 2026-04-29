@@ -35,23 +35,23 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>{{ Auth::user()->username }}さんの</p>
+        <p id='name'>{{ Auth::user()->username }}さんの</p>
         <div class="follow-wrapper">
           <p>フォロー数</p>
           <!--Models\User.phpで結合させたfollowテーブルから
           followingの数を取得-->
           <p class="number-people">{{ Auth::user()->follows->count() }}人</p>
         </div>
-        <p class="btn"><a href="">フォローリスト</a></p>
+        <p class="btn side-btn"><a href="follow-list">フォローリスト</a></p>
         <div class="follow-wrapper">
           <!--Models\User.phpで結合させたfollowテーブルから
           followedの数を取得-->
           <p>フォロワー数</p>
           <p class="number-people">{{ Auth::user()->followers->count() }}人</p>
         </div>
-        <p class="btn"><a href="">フォロワーリスト</a></p>
+        <p class="btn side-btn"><a href="follower-list">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="">ユーザー検索</a></p>
+      <p class="btn side-btn search"><a href="search">ユーザー検索</a></p>
     </div>
   </div>
   <footer>
