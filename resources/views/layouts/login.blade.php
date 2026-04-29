@@ -35,15 +35,19 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>〇〇さんの</p>
-        <div>
+        <p>{{ Auth::user()->username }}さんの</p>
+        <div class="follow-wrapper">
           <p>フォロー数</p>
-          <p>〇〇名</p>
+          <!--Models\User.phpで結合させたfollowテーブルから
+          followingの数を取得-->
+          <p class="number-people">{{ Auth::user()->follows->count() }}人</p>
         </div>
         <p class="btn"><a href="">フォローリスト</a></p>
-        <div>
+        <div class="follow-wrapper">
+          <!--Models\User.phpで結合させたfollowテーブルから
+          followedの数を取得-->
           <p>フォロワー数</p>
-          <p>〇〇名</p>
+          <p class="number-people">{{ Auth::user()->followers->count() }}人</p>
         </div>
         <p class="btn"><a href="">フォロワーリスト</a></p>
       </div>
@@ -53,8 +57,6 @@
   <footer>
   </footer>
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
 </body>
 
 </html>
