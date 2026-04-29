@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Follow;
 
 class UsersController extends Controller
 {
@@ -23,8 +24,9 @@ class UsersController extends Controller
         if (Auth::attempt($login)) {
             //セッションにログイン時の情報を追加
             $request -> session() -> regenerate();
+            dd(Auth::user()); // ←ここに置く
             //トップ画面に移動
-            return redirect('/top');
+            return redirect('top');
         }
 
         //ログインできなかった場合
@@ -77,6 +79,18 @@ class UsersController extends Controller
         //セッションに追加したユーザー名を入れる
         return redirect('/added')
         ->with('username', $userdata['username']);
+    }
+    //-------------------------------------------------------------------------
+
+    //------------------------------ログアウト処理------------------------------
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
     //-------------------------------------------------------------------------
 }

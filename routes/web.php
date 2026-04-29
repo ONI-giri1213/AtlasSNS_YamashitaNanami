@@ -24,7 +24,7 @@ require __DIR__ . '/auth.php';
 Route::middleware('auth')->group(function () {
 
     //ログイン後のルーティング
-    Route::get('/top', [PostsController::class, 'index']);
+    Route::get('top', [PostsController::class, 'index']);
 
     Route::get('profile', [ProfileController::class, 'profile']);
 
@@ -36,3 +36,6 @@ Route::middleware('auth')->group(function () {
 
 //->middleware('auth');
 });
+
+//ログアウト処理
+Route::get('logout', [UsersController::class, 'logout'])->name('logout');
