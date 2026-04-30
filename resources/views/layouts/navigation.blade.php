@@ -16,6 +16,7 @@
                 </li>
             </ul>
         </nav>
+        <img class="icon" src="images/{{ Auth::user()->icon_image }}">
     </div>
 </div>
 <script>

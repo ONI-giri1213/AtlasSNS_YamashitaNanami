@@ -38,7 +38,7 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
-    width: 300px;
+    height: 100vh;
 }
 
 /*----------------------------------ログイン、新規追加画面--------------------------------*/
@@ -155,6 +155,7 @@ header {
     justify-content: center;
     align-items: center;
     padding: 0;
+    margin: 0 30px;
 }
 
 #head h1 {
@@ -169,8 +170,6 @@ header {
     display: block;
 }
 
-#username {}
-
 #username p {
     justify-content: center;
     align-items: center;
@@ -179,6 +178,10 @@ header {
     font-size: 1.2em;
     font-weight: bold;
     margin: 0 30px 0 0;
+}
+
+.icon {
+    width: 50px;
 }
 
 .menu-navi {
@@ -269,6 +272,7 @@ header {
     box-sizing: border-box;
     transform: translateY(0%) rotate(-45deg);
     transition: .5s ease-in-out;
+    margin-top: 5px;
 }
 
 /*---------------------------------------------------------------------------------*/
@@ -306,10 +310,55 @@ header {
 .side-btn a {
     color: #fff;
     text-decoration: none;
+    outline: none;
 }
 
 .side-btn.search {
     margin: 20px auto;
+}
+
+/*---------------------------------------------------------------------------------*/
+
+/*------------------------------------投稿フォーム----------------------------------*/
+#post-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    border-bottom: 10px solid #ccc;
+    padding: 30px 0 30px 50px;
+}
+
+#post-box {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.post-text {
+    border: none;
+    background: none;
+    resize: none;
+    box-shadow: none;
+    outline: none;
+    width: 700px;
+    min-height: 50px;
+    max-height: 150px;
+}
+
+.post-text:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.post-btn {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.post-btn img {
+    width: 45px;
+    cursor: pointer;
 }
 
 /*---------------------------------------------------------------------------------*/
