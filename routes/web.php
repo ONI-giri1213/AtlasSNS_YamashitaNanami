@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
     //ログイン後のルーティング
     Route::get('top', [PostsController::class, 'index']);
 
+    //投稿後のルーティング
+    Route::post('post', [PostsController::class, 'postCreate']);
+
     Route::get('profile', [ProfileController::class, 'profile']);
 
     Route::get('search', [UsersController::class, 'search']);
