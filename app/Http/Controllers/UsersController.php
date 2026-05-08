@@ -46,9 +46,49 @@ class UsersController extends Controller
     //-------------------------------------------------------------------------
 
     //---------------------------------検索処理---------------------------------
-    public function search(){
-        $users = User::get();
+    public function search(Request $request){
+        //$users = User::get();
+        //return view('users.search',['users'=>$users]);
+
+        //検索したワードを$keyword変数で取得
+        $keyword = $request->input('keyword');
+
+        //自分以外のユーザーレコードを取得
+        $users = User::where('id', '!=', Auth::id());//(1)
+
+        //キーワードに値があるとき、値を取得してあいまい検索
+        //検索にヒットしたレコードを$usersに取得
+        if(!empty($keyword)){
+            $users->where('username', 'like', '%'.$keyword.'%');//(2)
+        }
+
+        //検索ワードがない場合は、自分以外のユーザーレコードをそのまま表示する
+        //リダイレクトでsearchのURLを指定して、ユーザ一覧ページを画面表示する
+        return view('users.search', ['users' => $users->get()]);//(3)
+
+        /*
+        (1)で大枠の条件文を作成
+        (2)で追加の条件文を作成　※ない場合は飛ばされる
+        (3)で(1)と(2)のSQLを実行し結果を取得
+         */
+
+        /*
+        //$keywordが空ではない場合と、空の場合で条件分岐
+        if(!empty($keyword)){
+            //入力してボタンを押した場合
+            //Usersテーブルのusernameカラムからあいまい検索し、検索にヒットしたレコードを取得
+            $users = User::where('username','like', '%'.$keyword.'%')
+            //自分以外のユーザーレコードを取得
+            ->where('username','like', '%'.$keyword.'%')
+            ->get();
+        }else{
+            //何も入力せずにボタンを押した場合
+            //usersテーブルの、自分以外のすべてのレコードを取得
+             $users = User::where('id', '!=', Auth::id())->get();
+        }
+        //リダイレクトでsearchのURLを指定して、ユーザ一覧ページを画面表示する
         return view('users.search',['users'=>$users]);
+        */
     }
     //-------------------------------------------------------------------------
 

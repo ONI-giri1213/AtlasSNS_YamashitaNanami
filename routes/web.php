@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('profile', [ProfileController::class, 'profile']);
 
+    //検索のルーティング
     Route::get('search', [UsersController::class, 'search']);
 
     Route::get('follow-list', [PostsController::class, 'index']);
