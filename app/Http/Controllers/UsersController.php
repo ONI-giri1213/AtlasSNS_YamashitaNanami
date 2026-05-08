@@ -47,7 +47,8 @@ class UsersController extends Controller
 
     //---------------------------------検索処理---------------------------------
     public function search(){
-        return view('users.search');
+        $users = User::get();
+        return view('users.search',['users'=>$users]);
     }
     //-------------------------------------------------------------------------
 
