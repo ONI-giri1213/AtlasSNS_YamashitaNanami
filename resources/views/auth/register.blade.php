@@ -1,4 +1,15 @@
 <x-logout-layout>
+
+@if($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+@endif
+
     <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/user/create','method' => 'post']) !!}
 

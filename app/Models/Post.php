@@ -16,8 +16,14 @@ class Post extends Model
     'post',
     ];
 
+    protected $casts = [
+    'created_at' => 'datetime',
+    'updated_at' => 'datetime',
+    ];
+
     //フォローのテーブル処理
     public function user(){
-       return $this->hasMany('App\Models\User');
+       return $this->belongsTo('App\Models\User');
     }
+
 }

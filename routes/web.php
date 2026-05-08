@@ -29,6 +29,12 @@ Route::middleware('auth')->group(function () {
     //投稿後のルーティング
     Route::post('post', [PostsController::class, 'postCreate']);
 
+    //編集のルーティング
+    Route::post('/post/{id}/update', [PostsController::class, 'update']);
+
+    //削除のルーティング
+    Route::post('/post/{id}/delete', [PostsController::class, 'delete']);
+
     Route::get('profile', [ProfileController::class, 'profile']);
 
     Route::get('search', [UsersController::class, 'search']);

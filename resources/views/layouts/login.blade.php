@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="ページの内容を表す文章" />
   <title></title>
+
   <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
@@ -14,6 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Scripts -->
+
   <!--サイトのアイコン指定-->
   <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
   <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
@@ -35,7 +37,7 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p id='name'>{{ Auth::user()->username }}さんの</p>
+        <p id="name">{{ Auth::user()->username }}さんの</p>
         <div class="follow-wrapper">
           <p>フォロー数</p>
           <!--Models\User.phpで結合させたfollowテーブルから
