@@ -58,8 +58,9 @@ class UsersController extends Controller
 
         //キーワードに値があるとき、値を取得してあいまい検索
         //検索にヒットしたレコードを$usersに取得
+        //検索結果を表示するときだけ新しく登録した順に並べ替え（降順）
         if(!empty($keyword)){
-            $users->where('username', 'like', '%'.$keyword.'%');//(2)
+            $users->where('username', 'like', '%'.$keyword.'%')->latest();//(2)
         }
 
         //検索ワードがない場合は、自分以外のユーザーレコードをそのまま表示する
