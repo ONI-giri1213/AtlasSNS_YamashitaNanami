@@ -54,6 +54,14 @@ class User extends Authenticatable
     );
     }
 
+    //フォローしているかの判定
+    public function following($id)
+    {
+        return $this->follows()         //フォロー一覧から自分のIDがfollowing_idに入っているもの
+        ->where('followed_id', $id)     //中からfollowed_idに指定した相手のIDが
+        ->exists();                     //存在しているかの判定
+    }
+
     public function posts(){
         return $this->hasMany('App\Models\Post');
     }

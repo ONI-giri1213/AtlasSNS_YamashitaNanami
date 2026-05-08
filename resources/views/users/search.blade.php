@@ -23,24 +23,26 @@
         <!--ユーザー名-->
         <p class="username">{{ $user->username }}</p>
       </div>
+
       <div class="follow-btn-wrapper">
-        <!--フォローしてないときに表示-->
-        @if ($user->followed_id != Auth::id())
-        {{ Form::open(['url' => "/follow/{$user->id}"]) }}
-          <button type="submit" class="follow-btn">
-            フォローする
-          </button>
-        {{ Form::close() }}
-        @endif
-        <!--フォローしてるときに表示-->
-        @if ($user->followed_id === Auth::id())
-        {{ Form::open(['url' => "/unfollow/{$user->id}"]) }}
-          <button type="submit" class="unfollow-btn">
-            フォロー解除
-          </button>
-        {{ Form::close() }}
+        <!--followingで自分が相手をフォローしているか判定-->
+        @if (Auth::user()->following($user->id))
+          <!--フォローしてるときに表示-->
+          {{ Form::open(['url' => "/unfollow/{$user->id}"]) }}
+            <button type="submit" class="unfollow-btn">
+              フォロー解除
+            </button>
+          {{ Form::close() }}
+        @else
+          <!--フォローしてないときに表示-->
+          {{ Form::open(['url' => "/follow/{$user->id}"]) }}
+            <button type="submit" class="follow-btn">
+              フォローする
+            </button>
+          {{ Form::close() }}
         @endif
       </div>
+
     </div>
 @endforeach
 </div>

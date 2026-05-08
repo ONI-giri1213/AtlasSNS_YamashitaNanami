@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +41,10 @@ Route::middleware('auth')->group(function () {
 
     //検索のルーティング
     Route::get('search', [UsersController::class, 'search']);
+    //フォローのルーティング
+    Route::post('/follow/{id}', [FollowsController::class, 'follow']);
+    //フォロー解除のルーティング
+    Route::post('/unfollow/{id}', [FollowsController::class, 'unfollow']);
 
     Route::get('follow-list', [PostsController::class, 'index']);
 
