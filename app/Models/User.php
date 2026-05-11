@@ -34,7 +34,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    //フォローのテーブル処理
+    //followsリレーション
+    //フォローしている側のテーブル
     public function follows(){
         return $this->belongsToMany(
         User::class,
@@ -44,7 +45,8 @@ class User extends Authenticatable
         );
     }
 
-    //フォロワーのテーブル処理
+    //followsリレーション
+    //フォローされてる側のテーブル
     public function followers(){
     return $this->belongsToMany(
         User::class,
@@ -62,6 +64,7 @@ class User extends Authenticatable
         ->exists();                     //存在しているかの判定
     }
 
+    //postsリレーション
     public function posts(){
         return $this->hasMany('App\Models\Post');
     }

@@ -28,30 +28,29 @@
 {!! Form::close() !!}
 
 <!--投稿一覧-->
-<div class="post-list">
+<div class="posts-list">
 @foreach ($posts as $post)
   <div class="list-box">
 
-    <div class="post-header">
+    <div class="posts-header">
       <div class="user-info">
         <!--ユーザーアイコン-->
         <img class="icon" src="images/{{ $post->user->icon_image }}">
+        <div class="posts-wrapper">
         <!--ユーザー名-->
-        <p class="post-username">{{ $post->user->username }}</p>
+        <p class="posts-username">{{ $post->user->username }}</p>
+          <!--投稿内容-->
+          <p class="posts-content">
+            <!--{{ $post->post }}-->
+            <!--改行ある投稿を改行で表示-->
+            {!! nl2br(e($post->post)) !!}
+          </p>
+        </div>
       </div>
-
       <!--投稿日付　フォーマットで分数までの表示、秒数は切り捨て-->
-      <p class="post-date">
+      <p class="posts-date">
         {{ $post->created_at->format('Y-m-d H:i') }}</p>
     </div>
-
-    <!--投稿内容-->
-    <p class="post-content">
-      <!--{{ $post->post }}-->
-      <!--改行ある投稿を改行で表示-->
-      {!! nl2br(e($post->post)) !!}
-    </p>
-
 
     <div class="btn-wrapper">
     <!--自分ポストにだけボタンを表示-->

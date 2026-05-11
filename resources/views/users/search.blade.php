@@ -17,7 +17,7 @@
 <div class="user-list">
 @foreach ($users as $user)
     <div class="user-box">
-      <div class="user-info">
+      <div class="user-list-info">
         <!--ユーザーアイコン-->
         <img class="icon" src="images/{{ $user->icon_image }}">
         <!--ユーザー名-->

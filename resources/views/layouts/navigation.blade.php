@@ -1,5 +1,5 @@
 <div id="head">
-    <h1><a href = "/top"><img id="top-logo" src="images/atlas.png"></a></h1>
+    <h1><a href = "/top"><img id="top-logo" src="/images/atlas.png"></a></h1>
     <div id="top">
         <div id="username">
           <!--ユーザー名を表示-->
@@ -10,13 +10,12 @@
         </div>
         <nav class="menu-navi">
             <ul>
-                <li><a href="top">HOME</a></li>
-                <li><a href="profile">プロフィール編集</a></li>
-                <li><a href="logout" >ログアウト</a>
-                </li>
+                <li><a href="/top">HOME</a></li>
+                <li><a href="/profile">プロフィール編集</a></li>
+                <li><a href="/logout" >ログアウト</a></li>
             </ul>
         </nav>
-        <img class="icon" src="images/{{ Auth::user()->icon_image }}">
+        <img class="icon" src="/images/{{ Auth::user()->icon_image }}">
     </div>
 </div>
 <script>

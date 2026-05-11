@@ -26,10 +26,10 @@ require __DIR__ . '/auth.php';
 Route::middleware('auth')->group(function () {
 
     //ログイン後のルーティング
-    Route::get('top', [PostsController::class, 'index']);
+    Route::get('/top', [PostsController::class, 'index']);
 
     //投稿後のルーティング
-    Route::post('post', [PostsController::class, 'postCreate']);
+    Route::post('/post', [PostsController::class, 'postCreate']);
 
     //編集のルーティング
     Route::post('/post/{id}/update', [PostsController::class, 'update']);
@@ -37,21 +37,25 @@ Route::middleware('auth')->group(function () {
     //削除のルーティング
     Route::post('/post/{id}/delete', [PostsController::class, 'delete']);
 
-    Route::get('profile', [ProfileController::class, 'profile']);
+    Route::get('/profile', [ProfileController::class, 'profile']);
+
+    Route::post('/profile/{id}', [ProfileController::class, 'profile']);
 
     //検索のルーティング
-    Route::get('search', [UsersController::class, 'search']);
+    Route::get('/search', [UsersController::class, 'search']);
+
     //フォローのルーティング
     Route::post('/follow/{id}', [FollowsController::class, 'follow']);
+
     //フォロー解除のルーティング
     Route::post('/unfollow/{id}', [FollowsController::class, 'unfollow']);
 
-    Route::get('follow-list', [PostsController::class, 'index']);
+    Route::get('/follow-list', [FollowsController::class, 'followList']);
 
-    Route::get('follower-list', [PostsController::class, 'index']);
+    Route::get('/follower-list', [FollowsController::class, 'followerList']);
 
 //->middleware('auth');
 });
 
 //ログアウト処理
-Route::get('logout', [UsersController::class, 'logout'])->name('logout');
+Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
