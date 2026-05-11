@@ -7,11 +7,9 @@
     @foreach ($follows as $follow)
       <div id="follow-box">
         <!--アイコンをクリックしたとき、それぞれのプロフィールに飛ぶ-->
-        {{ Form::open(['url' => "/profile/{$follow->id}"]) }}
-        <button type="submit" class="icon-btn">
+        <a href="/profile/{{ $follow->id }}">
           <img class="icon" src="images/{{ $follow->icon_image }}">
-        </button>
-        {{ Form::close() }}
+        </a>
       </div>
     @endforeach
   </div>
@@ -24,11 +22,9 @@
     <div class="posts-header">
       <div class="user-info">
         <!--ユーザーアイコン-->
-        {{ Form::open(['url' => "/profile/{$post->user->id}"]) }}
-          <button type="submit" class="icon-btn">
-            <img class="icon" src="images/{{ $post->user->icon_image }}">
-          </button>
-        {{ Form::close() }}
+        <a href="/profile/{{ $post->user->id }}">
+          <img class="icon" src="images/{{ $post->user->icon_image }}">
+        </a>
         <div class="posts-wrapper">
         <!--ユーザー名-->
         <p class="posts-username">{{ $post->user->username }}</p>

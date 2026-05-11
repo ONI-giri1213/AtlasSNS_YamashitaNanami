@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'profile']);
 
-    Route::post('/profile/{id}', [ProfileController::class, 'profile']);
+    Route::get('/profile/{id}', [ProfileController::class, 'profile']);
 
     //検索のルーティング
     Route::get('/search', [UsersController::class, 'search']);
