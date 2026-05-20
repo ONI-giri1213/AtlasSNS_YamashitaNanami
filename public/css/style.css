@@ -567,10 +567,16 @@ header {
 #search-wrapper {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     gap: 10px;
     border-bottom: 10px solid #ccc;
     padding: 40px 0 40px 70px;
     margin-bottom: 40px;
+}
+
+#search-wrapper p {
+    margin: auto;
+    font-size: 2rem;
 }
 
 .search-name {
@@ -617,7 +623,7 @@ header {
 
 .username {
     font-family: Arial, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: auto 10px;
 }
 
@@ -677,19 +683,51 @@ header {
     outline: none;
 }
 
+.user-info a {
+    text-decoration: none;
+    outline: none;
+}
+
 /*---------------------------------------------------------------------------------*/
 
 /*------------------------------------プロフィール----------------------------------*/
 #profile-wrapper {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     border-bottom: 10px solid #ccc;
-    padding: 20px 20px 50px 20px;
+    padding: 50px 20px 30px 20px;
 }
 
 #profile-wrapper .follow-btn-wrapper {
     margin-top: auto;
+}
+
+#profile-box {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    gap: 10px;
+    margin-left: 70px;
+}
+
+#profile-box .icon {
+    height: 50px;
+    width: 50px;
+}
+
+table {
+    margin-left: 10px;
+    font-size: 1.8rem;
+}
+
+th {
+    width: 120px;
+    text-align: left;
+}
+
+td {
+    text-align: center;
 }
 
 /*---------------------------------------------------------------------------------*/

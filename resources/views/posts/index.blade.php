@@ -35,7 +35,7 @@
     <div class="posts-header">
       <div class="user-info">
         <!--ユーザーアイコン-->
-        <img class="icon" src="images/{{ $post->user->icon_image }}">
+        <img class="icon" src="/images/{{ $post->user->icon_image }}">
         <div class="posts-wrapper">
         <!--ユーザー名-->
         <p class="posts-username">{{ $post->user->username }}</p>

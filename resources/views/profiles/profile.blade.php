@@ -1,17 +1,25 @@
 <x-login-layout>
-<div id="profile-wrapper">
-  <div id="profile-box">
-    <img class="icon" src="/images/{{ $user->icon_image }}">
-    <tr>
-      <th>ユーザー名</th>
-      <th>自己紹介</th>
-    </tr>
-    <tr>
-      <td>{{ $user->username }}</td>
-      <td>{{ $user->bio }}</td>
-  </div>
 
-  <div class="follow-btn-wrapper">
+@if (request('id'))
+<!--自分以外のユーザープロフィール-->
+<!--profile/が空白の時は非表示-->
+<div  class="user-profile">
+  <div id="profile-wrapper">
+    <div id="profile-box">
+      <img class="icon" src="/images/{{ $user->icon_image }}">
+      <table>
+        <tr>
+          <th>ユーザー名</th>
+         <td>{{ $user->username }}</td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td>{{ $user->bio }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="follow-btn-wrapper">
         <!--followingで自分が相手をフォローしているか判定-->
         @if (Auth::user()->following($user->id))
           <!--フォローしてるときに表示-->
@@ -29,5 +37,65 @@
           {{ Form::close() }}
         @endif
     </div>
+  </div>
+
+  <!--投稿一覧-->
+  <div class="posts-list">
+    @foreach ($posts as $post)
+    <div class="list-box">
+      <div class="posts-header">
+        <div class="user-info">
+          <!--ユーザーアイコン-->
+          <img class="icon" src="/images/{{ $post->user->icon_image }}">
+          <div class="posts-wrapper">
+            <!--ユーザー名-->
+            <p class="posts-username">{{ $post->user->username }}</p>
+            <!--投稿内容-->
+            <p class="posts-content">
+              <!--{{ $post->post }}-->
+              <!--改行ある投稿を改行で表示-->
+              {!! nl2br(e($post->post)) !!}
+            </p>
+          </div>
+        </div>
+        <!--投稿日付　フォーマットで分数までの表示、秒数は切り捨て-->
+        <p class="posts-date">
+          {{ $post->created_at->format('Y-m-d H:i') }}</p>
+      </div>
+    </div>
+    @endforeach
+  </div>
 </div>
+
+@else
+<!--自分のユーザープロフィール-->
+<!--profile/に値がある時は非表示-->
+<div id="">
+  {!! Form::open(['url' => 'profile', 'method' => 'post']) !!}
+  <!--ユーザーID-->
+  {{ Form::hidden('user_id', Auth::id()) }}
+  <!--ユーザー名-->
+  {{ Form::label('ユーザー名','ユーザー名',['class' => '']) }}
+  {{ Form::text('username',$user->username,['class' => '']) }}
+  <!--メールアドレス-->
+  {{ Form::label('メールアドレス','メールアドレス',['class' => '']) }}
+  {{ Form::email('email',$user->email,['class' => '']) }}
+  <!--パスワード-->
+  {{ Form::label('パスワード','パスワード',['class' => '']) }}
+  {{ Form::password('password',['class' => '']) }}
+  <!--パスワード確認-->
+  {{ Form::label('パスワード確認','パスワード確認',['class' => '']) }}
+  {{ Form::password('password_confirmation',['class' => '']) }}
+  <!--自己紹介-->
+  {{ Form::label('自己紹介','自己紹介',['class' => '']) }}
+  {{ Form::text('bio',$user->bio,['class' => '']) }}
+  <!--アイコン画像-->
+  {{ Form::label('アイコン画像','アイコン画像',['class' => '']) }}
+  {{ Form::file('icon-img',['class' => '']) }}
+
+  {{ Form::submit('更新',['class' => 'sub-btn']) }}
+</div>
+
+@endif
+
 </x-login-layout>

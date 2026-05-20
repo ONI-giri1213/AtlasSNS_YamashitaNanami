@@ -4,12 +4,17 @@
 {!! Form::open(['url' => 'search', 'method' => 'get']) !!}
 <div id="search-wrapper">
   <!--検索テキストエリア-->
-  <!--検索時にurl/search?keyword= から値を取得して入れる-->
-  {{ Form::text('keyword', request('keyword'), ['class' => 'form-control search-name','placeholder' => 'ユーザー名']) }}
+  {{ Form::text('keyword', null , ['class' => 'form-control search-name','placeholder' => 'ユーザー名']) }}
   <!--検索ボタン-->
   <button type="submit" class="search-btn">
     <img src="{{ asset('images/search.png') }}" alt="検索">
   </button>
+  <!--検索ワードが空白の時は非表示-->
+  @if (request('keyword'))
+    <!--検索時にurl/search?keyword= から値を取得して入れる-->
+    <!--検索ワード：'keyword'-->
+    <p>検索ワード：{{request('keyword')}}</p>
+  @endif
 </div>
 {!! Form::close() !!}
 

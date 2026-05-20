@@ -22,7 +22,7 @@
       <div class="user-info">
         <!--ユーザーアイコン-->
         <a href="/profile/{{ $post->user->id }}">
-            <img class="icon" src="images/{{ $post->user->icon_image }}">
+            <img class="icon" src="/images/{{ $post->user->icon_image }}">
         </a>
         <div class="posts-wrapper">
         <!--ユーザー名-->
