@@ -70,29 +70,44 @@
 @else
 <!--自分のユーザープロフィール-->
 <!--profile/に値がある時は非表示-->
-<div id="">
+<div id="profile-update-wrapper">
+  <img class="icon" src="images/{{ Auth::user()->icon_image }}">
   {!! Form::open(['url' => 'profile', 'method' => 'post']) !!}
   <!--ユーザーID-->
   {{ Form::hidden('user_id', Auth::id()) }}
-  <!--ユーザー名-->
-  {{ Form::label('ユーザー名','ユーザー名',['class' => '']) }}
-  {{ Form::text('username',$user->username,['class' => '']) }}
-  <!--メールアドレス-->
-  {{ Form::label('メールアドレス','メールアドレス',['class' => '']) }}
-  {{ Form::email('email',$user->email,['class' => '']) }}
-  <!--パスワード-->
-  {{ Form::label('パスワード','パスワード',['class' => '']) }}
-  {{ Form::password('password',['class' => '']) }}
-  <!--パスワード確認-->
-  {{ Form::label('パスワード確認','パスワード確認',['class' => '']) }}
-  {{ Form::password('password_confirmation',['class' => '']) }}
-  <!--自己紹介-->
-  {{ Form::label('自己紹介','自己紹介',['class' => '']) }}
-  {{ Form::text('bio',$user->bio,['class' => '']) }}
-  <!--アイコン画像-->
-  {{ Form::label('アイコン画像','アイコン画像',['class' => '']) }}
-  {{ Form::file('icon-img',['class' => '']) }}
 
+  <!--ユーザー名-->
+  <div class="update-box">
+    {{ Form::label('ユーザー名','ユーザー名',['class' => 'update-label']) }}
+    {{ Form::text('username',$user->username,['class' => 'update-form']) }}
+  </div>
+  <!--メールアドレス-->
+  <div class="update-box">
+    {{ Form::label('メールアドレス','メールアドレス',['class' => 'update-label']) }}
+    {{ Form::email('email',$user->email,['class' => 'update-form']) }}
+  </div>
+  <!--パスワード-->
+  <div class="update-box">
+    {{ Form::label('パスワード','パスワード',['class' => 'update-label']) }}
+    {{ Form::password('password',['class' => 'update-form']) }}
+  </div>
+  <!--パスワード確認-->
+  <div class="update-box">
+    {{ Form::label('パスワード確認','パスワード確認',['class' => 'update-label']) }}
+    {{ Form::password('password_confirmation',['class' => 'update-form']) }}
+  </div>
+  <!--自己紹介-->
+  <div class="update-box">
+    {{ Form::label('自己紹介','自己紹介',['class' => 'update-label']) }}
+    {{ Form::text('bio',$user->bio,['class' => 'update-form']) }}
+  </div>
+  <!--アイコン画像-->
+  <div class="update-box update-img">
+    {{ Form::label('アイコン画像','アイコン画像',['class' => 'update-label']) }}
+    {{ Form::file('images',['class' => 'update-form','id' => 'imgInput']) }}
+  </div>
+
+  <!--更新ボタン-->
   {{ Form::submit('更新',['class' => 'sub-btn']) }}
 </div>
 

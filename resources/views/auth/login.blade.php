@@ -32,6 +32,6 @@
   </div>
 </div>
 
-  {!! Form::close() !!}
+{!! Form::close() !!}
 
 </x-logout-layout>

@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-html {}
-
-body {}
-
 /* header */
 header {
     background: #186AC9;
@@ -11,11 +7,11 @@ header {
 
 #logo {
     text-align: center;
+    margin-top: 100px;
 }
 
 #logo-img {
     width: 150px;
-    margin-top: 150px;
 }
 
 #logo-text {
@@ -43,12 +39,11 @@ header {
 }
 
 /*----------------------------------ログイン、新規追加画面--------------------------------*/
-
 .box {
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    height: 100vh;
+    height: 100%;
 }
 
 .login-box {
@@ -728,6 +723,55 @@ th {
 
 td {
     text-align: center;
+}
+
+/*---------------------------------------------------------------------------------*/
+
+/*----------------------------------プロフィール編集--------------------------------*/
+#profile-update-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
+    margin: 50px 20px 30px 20px;
+}
+
+.update-box {
+    margin-bottom: 60px;
+}
+
+.update-label {
+    width: 250px;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.update-form {
+    width: 400px;
+    font-size: 1.8rem;
+    padding: 10px;
+    background-color: #EEE;
+    border: 1px #bbb solid;
+}
+
+.update-img {
+    display: flex;
+    justify-content: right;
+    height: 100px;
+}
+
+/*ファイルをアップロードするボタン*/
+input[type="file"]::file-selector-button {
+    border: none;
+    background-color: #fff;
+    color: #727272;
+}
+
+/*プロフィール更新ボタン*/
+#profile-update-wrapper .sub-btn {
+    margin: 0 auto;
+    padding: 10px 80px;
+    border-radius: 10px;
 }
 
 /*---------------------------------------------------------------------------------*/
