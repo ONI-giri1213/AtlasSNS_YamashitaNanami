@@ -34,14 +34,14 @@
         @if (Auth::user()->following($user->id))
           <!--フォローしてるときに表示-->
           {{ Form::open(['url' => "/unfollow/{$user->id}"]) }}
-            <button type="submit" class="unfollow-btn">
+            <button type="submit" class="btn btn-danger sub-btn">
               フォロー解除
             </button>
           {{ Form::close() }}
         @else
           <!--フォローしてないときに表示-->
           {{ Form::open(['url' => "/follow/{$user->id}"]) }}
-            <button type="submit" class="follow-btn">
+            <button type="submit" class="btn btn-info sub-btn">
               フォローする
             </button>
           {{ Form::close() }}

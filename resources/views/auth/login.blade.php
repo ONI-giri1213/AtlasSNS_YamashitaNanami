@@ -1,13 +1,4 @@
 <x-logout-layout>
-@if($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-@endif
 
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => 'login', 'method' => 'post']) !!}
@@ -26,7 +17,7 @@
         {{ Form::password('password',['class' => 'input form-control rounded-pill']) }}
         </div>
 
-        {{ Form::submit('ログイン',['class' => 'sub-btn']) }}
+        {{ Form::submit('ログイン',['class' => 'btn btn-danger sub-btn']) }}
       <p class="a-box"><a class="a-text" href="/register">新規ユーザーの方はこちら</a></p>
     </div>
   </div>

@@ -71,10 +71,8 @@
 <!--自分のユーザープロフィール-->
 <!--profile/に値がある時は非表示-->
 <div id="profile-update-wrapper">
-  <img class="icon" src="images/{{ Auth::user()->icon_image }}">
-  {!! Form::open(['url' => 'profile', 'method' => 'post']) !!}
-  <!--ユーザーID-->
-  {{ Form::hidden('user_id', Auth::id()) }}
+  <img class="icon" src="{{ asset('images/' . $user->icon_image) }}">
+  {{ Form::open(['url' => '/profile/update' ,'files' => true]) }}
 
   <!--ユーザー名-->
   <div class="update-box">
@@ -89,12 +87,12 @@
   <!--パスワード-->
   <div class="update-box">
     {{ Form::label('パスワード','パスワード',['class' => 'update-label']) }}
-    {{ Form::password('password',['class' => 'update-form']) }}
+    {{ Form::password('newpassword',['class' => 'update-form']) }}
   </div>
   <!--パスワード確認-->
   <div class="update-box">
     {{ Form::label('パスワード確認','パスワード確認',['class' => 'update-label']) }}
-    {{ Form::password('password_confirmation',['class' => 'update-form']) }}
+    {{ Form::password('newpassword_confirmation',['class' => 'update-form']) }}
   </div>
   <!--自己紹介-->
   <div class="update-box">
@@ -104,11 +102,14 @@
   <!--アイコン画像-->
   <div class="update-box update-img">
     {{ Form::label('アイコン画像','アイコン画像',['class' => 'update-label']) }}
-    {{ Form::file('images',['class' => 'update-form','id' => 'imgInput']) }}
+    {{ Form::file('iconimage',['class' => 'update-form','id' => 'imgInput']) }}
   </div>
 
   <!--更新ボタン-->
   {{ Form::submit('更新',['class' => 'sub-btn']) }}
+
+  {{ Form::close() }}
+
 </div>
 
 @endif

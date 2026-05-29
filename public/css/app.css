@@ -4009,7 +4009,7 @@ fieldset[disabled] .btn-default:hover {
 
 .btn-primary {
   color: #fff;
-  background-color: #3097D1;
+  background-color: #186AC9;
   border-color: #2a88bd
 }
 
@@ -4123,14 +4123,14 @@ fieldset[disabled] .btn-success:hover {
 
 .btn-info {
   color: #fff;
-  background-color: #8eb4cb;
+  background-color: #42B6FF;
   border-color: #7da8c3
 }
 
 .btn-info.focus,
 .btn-info:focus {
   color: #fff;
-  background-color: #6b9dbb;
+  background-color: #429aff;
   border-color: #3d6983
 }
 
@@ -4139,7 +4139,7 @@ fieldset[disabled] .btn-success:hover {
 .btn-info:hover,
 .open>.btn-info.dropdown-toggle {
   color: #fff;
-  background-color: #6b9dbb;
+  background-color: #429aff;
   border-color: #538db0
 }
 
@@ -4153,7 +4153,7 @@ fieldset[disabled] .btn-success:hover {
 .open>.btn-info.dropdown-toggle:focus,
 .open>.btn-info.dropdown-toggle:hover {
   color: #fff;
-  background-color: #538db0;
+  background-color: #429aff;
   border-color: #3d6983
 }
 
@@ -4231,14 +4231,14 @@ fieldset[disabled] .btn-warning:hover {
 
 .btn-danger {
   color: #fff;
-  background-color: #bf5329;
+  background-color: #c7254e;
   border-color: #aa4a24
 }
 
 .btn-danger.focus,
 .btn-danger:focus {
   color: #fff;
-  background-color: #954120;
+  background-color: #910629;
   border-color: #411c0e
 }
 
@@ -4247,7 +4247,7 @@ fieldset[disabled] .btn-warning:hover {
 .btn-danger:hover,
 .open>.btn-danger.dropdown-toggle {
   color: #fff;
-  background-color: #954120;
+  background-color: #910629;
   border-color: #78341a
 }
 
@@ -4261,7 +4261,7 @@ fieldset[disabled] .btn-warning:hover {
 .open>.btn-danger.dropdown-toggle:focus,
 .open>.btn-danger.dropdown-toggle:hover {
   color: #fff;
-  background-color: #78341a;
+  background-color: #910629;
   border-color: #411c0e
 }
 
@@ -4274,7 +4274,7 @@ fieldset[disabled] .btn-warning:hover {
 fieldset[disabled] .btn-danger.focus,
 fieldset[disabled] .btn-danger:focus,
 fieldset[disabled] .btn-danger:hover {
-  background-color: #bf5329;
+  background-color: #910629;
   border-color: #aa4a24
 }
 

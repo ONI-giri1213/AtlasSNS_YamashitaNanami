@@ -30,6 +30,15 @@
   <header>
     @include('layouts.navigation')
   </header>
+  @if($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
   <!-- Page Content -->
   <div id="row">
     <div id="container">
@@ -44,16 +53,16 @@
           followingの数を取得-->
           <p class="number-people">{{ Auth::user()->follows->count() }}人</p>
         </div>
-        <p class="btn side-btn"><a href="/follow-list">フォローリスト</a></p>
+        <p class="btn btn-primary side-btn"><a href="/follow-list">フォローリスト</a></p>
         <div class="follow-wrapper">
           <!--Models\User.phpで結合させたfollowテーブルから
           followedの数を取得-->
           <p>フォロワー数</p>
           <p class="number-people">{{ Auth::user()->followers->count() }}人</p>
         </div>
-        <p class="btn side-btn"><a href="/follower-list">フォロワーリスト</a></p>
+        <p class="btn btn-primary side-btn"><a href="/follower-list">フォロワーリスト</a></p>
       </div>
-      <p class="btn side-btn search"><a href="/search">ユーザー検索</a></p>
+      <p class="btn btn-primary side-btn search"><a href="/search">ユーザー検索</a></p>
     </div>
   </div>
   <footer>

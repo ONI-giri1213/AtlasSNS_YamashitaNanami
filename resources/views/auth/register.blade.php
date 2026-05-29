@@ -1,15 +1,4 @@
 <x-logout-layout>
-
-@if($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-@endif
-
     <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/user/create','method' => 'post']) !!}
 
@@ -47,7 +36,7 @@
             @endif
             -->
 
-            {{ Form::submit('新規登録',['class' => 'sub-btn']) }}
+            {{ Form::submit('新規登録',['class' => 'btn btn-danger sub-btn']) }}
 
             <p class="a-box"><a class="a-text" href="login">ログイン画面へ戻る</a></p>
         </div>

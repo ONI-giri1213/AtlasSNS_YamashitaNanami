@@ -37,8 +37,9 @@ Route::middleware('auth')->group(function () {
     //削除のルーティング
     Route::post('/post/{id}/delete', [PostsController::class, 'delete']);
 
-    Route::get('/profile', [ProfileController::class, 'profile']);
+    Route::post('/profile/update', [ProfileController::class, 'profileUpdate']);
 
+    Route::get('/profile', [ProfileController::class, 'profile']);
     Route::get('/profile/{id}', [ProfileController::class, 'profile']);
 
     //検索のルーティング

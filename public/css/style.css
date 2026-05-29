@@ -90,15 +90,14 @@ header {
 }
 
 .sub-btn {
-    background-color: #c7254e;
+    border-radius: 10px;
     border: none;
-    border-radius: 0.5rem;
+    width: 140px;
+    height: 40px;
     padding: 5px 20px;
     display: block;
     margin-left: auto;
     text-align: center;
-    font-size: 1.7rem;
-    color: #fff;
 }
 
 .a-box {
@@ -299,12 +298,10 @@ header {
 .side-btn {
     display: block;
     margin-left: auto;
-    background-color: #186AC9;
     width: 140px;
     border: none;
     border-radius: 0.7rem;
     padding: 10px;
-    text-align: center;
     font-size: 1.2rem;
 }
 
@@ -626,25 +623,6 @@ header {
     margin-left: auto;
 }
 
-/*フォローボタン*/
-.follow-btn {
-    background-color: #42B6FF;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    width: 140px;
-    height: 40px;
-}
-
-/*フォロー解除ボタン*/
-.unfollow-btn {
-    background-color: red;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    width: 140px;
-    height: 40px;
-}
 
 /*---------------------------------------------------------------------------------*/
 
@@ -722,7 +700,8 @@ th {
 }
 
 td {
-    text-align: center;
+    text-align: left;
+    font-weight: bold;
 }
 
 /*---------------------------------------------------------------------------------*/

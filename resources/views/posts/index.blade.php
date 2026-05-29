@@ -11,7 +11,7 @@
 
 <!--<h2>機能を実装していきましょう。</h2>-->
 <!--投稿フォーム-->
-{!! Form::open(['url' => 'post', 'method' => 'post']) !!}
+{!! Form::open(['url' => '/post', 'method' => 'post']) !!}
 <div id="post-wrapper">
   <div id="post-box">
     <img class="icon" src="images/{{ Auth::user()->icon_image }}">
